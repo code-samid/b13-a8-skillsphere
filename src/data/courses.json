@@ -1,0 +1,101 @@
+[
+  {
+    "id": 1,
+    "title": "Complete Web Development Bootcamp",
+    "instructor": "John Doe",
+    "duration": "20 hours",
+    "rating": 4.8,
+    "level": "Beginner",
+    "description": "Learn full-stack web development from scratch.",
+    "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800",
+    "category": "Development"
+  },
+  {
+    "id": 2,
+    "title": "Advanced React Mastery",
+    "instructor": "Jane Smith",
+    "duration": "15 hours",
+    "rating": 4.7,
+    "level": "Intermediate",
+    "description": "Master React hooks, context, and performance.",
+    "image": "https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&q=80&w=800",
+    "category": "Development"
+  },
+  {
+    "id": 3,
+    "title": "UI/UX Design Fundamentals",
+    "instructor": "Emily Clark",
+    "duration": "12 hours",
+    "rating": 4.6,
+    "level": "Beginner",
+    "description": "Learn modern UI/UX design principles.",
+    "image": "https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&q=80&w=800",
+    "category": "Design"
+  },
+  {
+    "id": 4,
+    "title": "Digital Marketing Strategy",
+    "instructor": "Mark Lee",
+    "duration": "10 hours",
+    "rating": 4.5,
+    "level": "Beginner",
+    "description": "Build marketing campaigns that convert.",
+    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
+    "category": "Marketing"
+  },
+  {
+    "id": 5,
+    "title": "Node.js Backend Development",
+    "instructor": "Alex Brown",
+    "duration": "18 hours",
+    "rating": 4.7,
+    "level": "Intermediate",
+    "description": "Build scalable backend APIs.",
+    "image": "https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&q=80&w=800",
+    "category": "Development"
+  },
+  {
+    "id": 6,
+    "title": "Figma UI Design",
+    "instructor": "Sophia Turner",
+    "duration": "8 hours",
+    "rating": 4.4,
+    "level": "Beginner",
+    "description": "Design beautiful interfaces using Figma.",
+    "image": "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&q=80&w=800",
+    "category": "Design"
+  },
+  {
+    "id": 7,
+    "title": "SEO Masterclass",
+    "instructor": "David Kim",
+    "duration": "9 hours",
+    "rating": 4.3,
+    "level": "Intermediate",
+    "description": "Rank websites on Google effectively.",
+    "image": "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?auto=format&fit=crop&q=80&w=800",
+    "category": "Marketing"
+  },
+  {
+    "id": 8,
+    "title": "Python for Beginners",
+    "instructor": "Chris Evans",
+    "duration": "14 hours",
+    "rating": 4.6,
+    "level": "Beginner",
+    "description": "Learn Python from scratch.",
+    "image": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=800",
+    "category": "Development"
+  },
+  {
+    "id": 9,
+    "title": "Brand Design Essentials",
+    "instructor": "Olivia White",
+    "duration": "11 hours",
+    "rating": 4.5,
+    "level": "Intermediate",
+    "description": "Create strong brand identities.",
+    "image": "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=800",
+    "category": "Design"
+  }
+]

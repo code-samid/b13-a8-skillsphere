@@ -1,55 +1,28 @@
 "use client";
 
-import {
-  Navbar as HNavbar,
-  NavbarBrand,
-  NavbarContent,
-  NavbarItem,
-  Button,
-  Avatar
-} from "@heroui/react";
-
+import { Button } from "@heroui/react";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { authClient } from "@better-auth/next/client";
 
 export default function Navbar() {
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    authClient.getSession().then(res => {
-      setUser(res?.data?.user || null);
-    });
-  }, []);
-
-  const logout = async () => {
-    await authClient.signOut();
-    location.reload();
-  };
-
   return (
-    <HNavbar>
-      <NavbarBrand>SkillSphere</NavbarBrand>
+    <nav className="flex justify-between p-4 bg-gray-900 text-white">
+      <h1 className="font-bold">SkillSphere</h1>
 
-      <NavbarContent>
-        <NavbarItem><Link href="/">Home</Link></NavbarItem>
-        <NavbarItem><Link href="/courses">Courses</Link></NavbarItem>
-        <NavbarItem><Link href="/my-profile">My Profile</Link></NavbarItem>
-      </NavbarContent>
+      <div className="flex gap-4">
+        <Link href="/">Home</Link>
+        <Link href="/courses">Courses</Link>
+        <Link href="/my-profile">Profile</Link>
+      </div>
 
-      <NavbarContent justify="end">
-        {user ? (
-          <>
-            <Avatar src={user.image} />
-            <Button onClick={logout} color="danger">Logout</Button>
-          </>
-        ) : (
-          <>
-            <Link href="/login"><Button>Login</Button></Link>
-            <Link href="/register"><Button>Register</Button></Link>
-          </>
-        )}
-      </NavbarContent>
-    </HNavbar>
+      <div className="flex gap-2">
+        <Link href="/login">
+          <Button>Login</Button>
+        </Link>
+
+        <Link href="/register">
+          <Button>Register</Button>
+        </Link>
+      </div>
+    </nav>
   );
 }
