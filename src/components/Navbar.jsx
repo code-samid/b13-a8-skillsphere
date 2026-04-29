@@ -5,23 +5,43 @@ import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <nav className="flex justify-between p-4 bg-gray-900 text-white">
-      <h1 className="font-bold">SkillSphere</h1>
-
-      <div className="flex gap-4">
-        <Link href="/">Home</Link>
-        <Link href="/courses">Courses</Link>
-        <Link href="/my-profile">Profile</Link>
-      </div>
-
-      <div className="flex gap-2">
-        <Link href="/login">
-          <Button>Login</Button>
+    <nav className="sticky top-0 z-50 backdrop-blur bg-gray-900/70 border-b border-gray-800">
+      
+      <div className="w-full px-4 sm:px-6 lg:px-10 py-3 flex items-center justify-between">
+        
+        {/* Logo */}
+        <Link href="/" className="text-xl font-bold text-white">
+          Skill<span className="text-green-500">Sphere</span>
         </Link>
 
-        <Link href="/register">
-          <Button>Register</Button>
-        </Link>
+        {/* Links */}
+        <div className="hidden md:flex items-center gap-6 text-sm text-gray-300">
+          <Link href="/" className="hover:text-white transition">
+            Home
+          </Link>
+          <Link href="/courses" className="hover:text-white transition">
+            Courses
+          </Link>
+          <Link href="/my-profile" className="hover:text-white transition">
+            Profile
+          </Link>
+        </div>
+
+        {/* Buttons */}
+        <div className="flex items-center gap-2">
+          <Link href="/login">
+            <Button variant="light" className="text-white">
+              Login
+            </Button>
+          </Link>
+
+          <Link href="/register">
+            <Button className="bg-green-600 text-white hover:bg-green-700">
+              Register
+            </Button>
+          </Link>
+        </div>
+
       </div>
     </nav>
   );
