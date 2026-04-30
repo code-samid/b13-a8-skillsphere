@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { authClient } from "@better-auth/next/client";
 import toast from "react-hot-toast";
 
 export default function UpdateProfile() {
@@ -13,7 +12,16 @@ export default function UpdateProfile() {
 
   const handleUpdate = async () => {
     try {
-      await authClient.updateUser({ name, image });
+      const res = await fetch("/api/auth/update-user", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, image }),
+        credentials: "include",
+      });
+
+      if (!res.ok) throw new Error();
 
       toast.success("Profile updated ✅");
 

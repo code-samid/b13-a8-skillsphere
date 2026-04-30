@@ -19,7 +19,6 @@ const handleLogin = async (e) => {
   setLoading(true);
 
   try {
-    // 1️⃣ TRY LOGIN
     const loginRes = await fetch("/api/auth/sign-in/email", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -27,8 +26,8 @@ const handleLogin = async (e) => {
       credentials: "include",
     });
 
-    // 2️⃣ IF LOGIN FAILS → AUTO SIGNUP
     if (!loginRes.ok) {
+      // 🔥 AUTO SIGNUP
       const signupRes = await fetch("/api/auth/sign-up/email", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -51,7 +50,7 @@ const handleLogin = async (e) => {
     router.refresh();
 
   } catch (err) {
-    toast.error("Authentication failed ❌");
+    toast.error("Login failed ❌");
   } finally {
     setLoading(false);
   }
