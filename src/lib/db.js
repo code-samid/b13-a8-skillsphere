@@ -1,5 +1,32 @@
 import { MongoClient } from "mongodb";
 
-const client = new MongoClient(process.env.MONGODB_URI);
+const uri = process.env.MONGODB_URI;
 
-export const db = client.db();
+if (!uri) {
+  throw new Error("❌ MONGODB_URI missing");
+}
+
+let client;
+let clientPromise;
+
+if (!global._mongoClientPromise) {
+  client = new MongoClient(uri);
+  global._mongoClientPromise = client.connect();
+}
+
+clientPromise = global._mongoClientPromise;
+
+export async function getDb() {
+  const client = await clientPromise;
+  return client.db();
+}
+
+
+
+
+
+// import { MongoClient } from "mongodb";
+
+// const client = new MongoClient(process.env.MONGODB_URI);
+
+// export const db = client.db();

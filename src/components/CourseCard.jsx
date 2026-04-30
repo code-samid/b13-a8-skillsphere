@@ -7,7 +7,7 @@ export default function CourseCard({ course }) {
       
       {/* 🔥 Badge */}
       {course.rating >= 4.5 && (
-        <span className="absolute top-2 left-2 bg-red-400 text-white text-xs px-3 py-1 rounded-md z-10">
+        <span className="absolute top-2 left-2 bg-green-400 text-black text-xs px-3 py-1 rounded-md z-10">
           Popular
         </span>
       )}

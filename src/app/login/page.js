@@ -7,52 +7,88 @@ import toast from "react-hot-toast";
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const router = useRouter();
   const searchParams = useSearchParams();
 
   const redirectTo = searchParams.get("redirect") || "/";
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
+const handleLogin = async (e) => {
+  e.preventDefault();
+  setLoading(true);
 
-    try {
-      const res = await fetch("/api/auth/sign-in/email", {
+  try {
+    // 1️⃣ TRY LOGIN
+    const loginRes = await fetch("/api/auth/sign-in/email", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password }),
+      credentials: "include",
+    });
+
+    // 2️⃣ IF LOGIN FAILS → AUTO SIGNUP
+    if (!loginRes.ok) {
+      const signupRes = await fetch("/api/auth/sign-up/email", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password })
+        body: JSON.stringify({
+          email,
+          password,
+          name: "User",
+        }),
+        credentials: "include",
       });
 
-      if (!res.ok) throw new Error("Login failed");
-
-      toast.success("Login successful");
-      router.push(redirectTo);
-    } catch (err) {
-      toast.error("Invalid credentials");
+      if (!signupRes.ok) {
+        throw new Error("Signup failed");
+      }
     }
-  };
+
+    toast.success("Login successful ✅");
+
+    router.push(redirectTo);
+    router.refresh();
+
+  } catch (err) {
+    toast.error("Authentication failed ❌");
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
-    <div className="flex justify-center items-center h-screen">
-      <form onSubmit={handleLogin} className="p-6 border rounded w-80">
-
-        <h1 className="text-xl mb-4">Login</h1>
+    <div className="min-h-screen flex items-center justify-center px-4">
+      <form
+        onSubmit={handleLogin}
+        className="w-full max-w-md border border-gray-400 rounded-2xl p-6 shadow-md space-y-4"
+      >
+        <h1 className="text-2xl font-semibold text-center text-gray-800">
+          Login
+        </h1>
 
         <input
-          className="border w-full p-2 mb-2"
+          className="border w-full p-2 rounded"
           placeholder="Email"
+          type="email"
+          required
           onChange={(e) => setEmail(e.target.value)}
         />
 
         <input
-          className="border w-full p-2 mb-2"
+          className="border w-full p-2 rounded"
           placeholder="Password"
           type="password"
+          required
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <button className="bg-blue-500 text-white w-full p-2">
-          Login
+        <button
+          type="submit"
+          disabled={loading}
+          className="w-full bg-green-600 text-white py-2 rounded-lg"
+        >
+          {loading ? "Logging in..." : "Login"}
         </button>
       </form>
     </div>

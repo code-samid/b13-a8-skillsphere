@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 export default function HeroSlider() {
   return (
     <div className="relative h-[65vh] flex items-center">
@@ -23,12 +25,13 @@ export default function HeroSlider() {
             Discover high-quality courses from expert instructors and grow your career faster.
           </p>
 
-          <button className="px-6 py-3 bg-green-600 rounded-lg hover:bg-green-700 transition">
-            Explore Courses
-          </button>
+          <Link href="/courses" className="px-6 py-3 bg-green-400 text-black rounded-lg hover:bg-green-700 transition">Explore Courses</Link>
+            
+        
 
         </div>
       </div>
     </div>
   );
 }
+

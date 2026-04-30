@@ -25,7 +25,7 @@ export default function Home() {
               Popular Courses
             </h2>
 
-            <div className="mt-2 w-16 h-1 bg-green-600 rounded-full"></div>
+            <div className="mt-2 w-16 h-1 bg-green-400 rounded-full"></div>
 
             <p className="text-sm text-gray-400 mt-2">
               Learn from top-rated courses
@@ -34,7 +34,7 @@ export default function Home() {
 
           <Link
             href="/courses"
-            className="text-sm font-medium text-green-600 hover:text-green-700 transition"
+            className="text-sm font-medium text-green-400 hover:text-green-700 transition"
           >
             View All →
           </Link>
