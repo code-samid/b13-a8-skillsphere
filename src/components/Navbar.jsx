@@ -11,7 +11,7 @@ export default function Navbar() {
         
         {/* Logo */}
         <Link href="/" className="text-xl font-bold text-white">
-          Skill<span className="text-green-500">Sphere</span>
+          Skill<span className="text-green-400">Sphere</span>
         </Link>
 
         {/* Links */}
@@ -30,13 +30,13 @@ export default function Navbar() {
         {/* Buttons */}
         <div className="flex items-center gap-2">
           <Link href="/login">
-            <Button variant="light" className="text-white">
+            <Button variant="light" className=" hover:text-white transition">
               Login
             </Button>
           </Link>
 
           <Link href="/register">
-            <Button className="bg-green-600 text-white hover:bg-green-700">
+            <Button className="bg-green-400 text-black hover:bg-green-700">
               Register
             </Button>
           </Link>
